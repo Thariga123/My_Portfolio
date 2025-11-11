@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Chemistry Graduate & Researcher";
+  const fullText = "Thariga Shrinithi";
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
@@ -52,17 +52,17 @@ export default function Home() {
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             Hi, I'm{" "}
-            <span className="gradient-text">Emma Ahearn</span>
+            <span className="gradient-text">{displayText}</span>
+            {showCursor && <span className="animate-pulse">|</span>}
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8 h-8"
+            className="text-xl md:text-2xl text-muted-foreground mb-8"
           >
-            {displayText}
-            {showCursor && <span className="animate-pulse">|</span>}
+            Full Stack Developer | Tech Enthusiast | Problem Solver
           </motion.div>
 
           <motion.p
@@ -71,8 +71,8 @@ export default function Home() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto"
           >
-            Passionate about applying extensive academic background and laboratory
-            experience to innovative research and development initiatives.
+            Aspiring engineering student driven to develop innovative solutions through technical expertise and creativity. 
+            Passionate about continuous learning and eager to apply skills in real-world projects.
           </motion.p>
 
           <motion.div

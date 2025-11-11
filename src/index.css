@@ -8,83 +8,83 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 97%;
-    --foreground: 240 15% 15%;
+    --background: 180 20% 97%;
+    --foreground: 210 18% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 15% 15%;
+    --card-foreground: 210 18% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 15% 15%;
+    --popover-foreground: 210 18% 16%;
 
-    --primary: 165 70% 55%;
+    --primary: 184 100% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 65% 75%;
-    --secondary-foreground: 240 15% 15%;
+    --secondary: 210 10% 25%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 92%;
-    --muted-foreground: 240 10% 45%;
+    --muted: 180 15% 92%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 45 90% 70%;
-    --accent-foreground: 240 15% 15%;
+    --accent: 172 35% 75%;
+    --accent-foreground: 210 18% 16%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 165 70% 55%;
+    --border: 180 15% 88%;
+    --input: 180 15% 88%;
+    --ring: 184 100% 35%;
 
     --radius: 1rem;
 
-    /* Custom gradient colors for portfolio */
-    --gradient-start: 165 75% 85%;
-    --gradient-mid: 270 70% 85%;
-    --gradient-end: 45 85% 85%;
+    /* Custom gradient colors for Nature & Calm theme */
+    --gradient-start: 180 25% 90%;
+    --gradient-mid: 172 40% 85%;
+    --gradient-end: 180 100% 96%;
     
     /* Glass effect */
     --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 100% / 0.2;
+    --glass-border: 172 35% 75% / 0.2;
   }
 
   .dark {
-    --background: 240 20% 8%;
-    --foreground: 220 25% 95%;
+    --background: 210 18% 10%;
+    --foreground: 180 20% 95%;
 
-    --card: 240 18% 12%;
-    --card-foreground: 220 25% 95%;
+    --card: 210 15% 15%;
+    --card-foreground: 180 20% 95%;
 
-    --popover: 240 18% 12%;
-    --popover-foreground: 220 25% 95%;
+    --popover: 210 15% 15%;
+    --popover-foreground: 180 20% 95%;
 
-    --primary: 165 70% 50%;
+    --primary: 184 90% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 60% 65%;
-    --secondary-foreground: 220 25% 95%;
+    --secondary: 210 10% 30%;
+    --secondary-foreground: 180 20% 95%;
 
-    --muted: 240 15% 18%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 210 12% 20%;
+    --muted-foreground: 180 15% 65%;
 
-    --accent: 45 85% 65%;
-    --accent-foreground: 240 20% 8%;
+    --accent: 172 30% 60%;
+    --accent-foreground: 210 18% 10%;
 
     --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 220 25% 95%;
+    --destructive-foreground: 180 20% 95%;
 
-    --border: 240 15% 20%;
-    --input: 240 15% 20%;
-    --ring: 165 70% 50%;
+    --border: 210 12% 25%;
+    --input: 210 12% 25%;
+    --ring: 184 90% 45%;
 
     /* Custom gradient colors for dark mode */
-    --gradient-start: 165 60% 20%;
-    --gradient-mid: 270 50% 20%;
-    --gradient-end: 45 70% 25%;
+    --gradient-start: 180 20% 15%;
+    --gradient-mid: 172 25% 18%;
+    --gradient-end: 210 15% 20%;
     
     /* Glass effect dark */
-    --glass-bg: 240 18% 12% / 0.7;
-    --glass-border: 0 0% 100% / 0.1;
+    --glass-bg: 210 15% 15% / 0.7;
+    --glass-border: 172 30% 60% / 0.15;
   }
 }
 

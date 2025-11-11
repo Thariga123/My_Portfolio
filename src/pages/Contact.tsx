@@ -12,19 +12,19 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@reallygreatsite.com",
-    href: "mailto:hello@reallygreatsite.com",
+    value: "tharigashrinithi2005@gmail.com",
+    href: "mailto:tharigashrinithi2005@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+123-456-7890",
-    href: "tel:+1234567890",
+    value: "+91 9791885459",
+    href: "tel:+919791885459",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "123 Anywhere St., Any City, ST 12345",
+    value: "Coimbatore, India",
     href: null,
   },
 ];
@@ -111,9 +111,9 @@ export default function Contact() {
               >
                 <h3 className="font-semibold mb-3">Let's Connect</h3>
                 <p className="text-muted-foreground">
-                  I'm currently seeking opportunities to apply my chemistry background
-                  and research experience. Whether you have a question about my work
-                  or want to discuss potential collaborations, feel free to reach out!
+                  I'm currently seeking opportunities to contribute my full-stack development 
+                  skills and technical expertise. Whether you have a project in mind or want 
+                  to discuss potential collaborations, feel free to reach out!
                 </p>
               </motion.div>
             </motion.div>

@@ -5,43 +5,44 @@ import { Button } from "@/components/ui/button";
 import { Download, GraduationCap, Briefcase, Award, FileText } from "lucide-react";
 
 const education = {
-  degree: "Bachelor of Science in Chemistry",
-  university: "East State University",
-  location: "Valley City",
-  period: "2026-2030",
-  gpa: "3.8",
-  coursework: [
-    "Organic Chemistry",
-    "Inorganic Chemistry",
-    "Physical Chemistry",
-    "Analytical Chemistry",
-    "Chemical Engineering Principles",
-    "Thermodynamics",
-    "Material Science",
-  ],
+  degree: "B.E. Electronics and Communication Engineering",
+  university: "SNS College of Engineering",
+  location: "Coimbatore",
+  period: "2022-2026",
+  cgpa: "9.82",
 };
 
 const experience = {
-  title: "Undergraduate Research Assistant",
-  organization: "Chemistry Department of East State University",
-  period: "2029-2030",
+  title: "Full Stack Developer",
+  organization: "Syncner (Remote, India)",
+  period: "Jul 2025 - Present",
   responsibilities: [
-    "Collaborated with a research team to study the synthesis of novel organic compounds",
-    "Conducted experiments using chromatography, spectroscopy, and other analytical techniques",
-    "Analyzed and interpreted data, contributing to a research paper submitted for publication",
+    "Built web applications using React.js and Node.js",
+    "Designed APIs with Postman and optimized database queries",
+    "Collaborated with cross-functional teams to deliver high-quality solutions",
   ],
 };
 
-const awards = [
-  "Dean's List, East State University (2026-2030)",
-  "Gold Award, Chemistry Olympiad (2027)",
+const certifications = [
+  "SnowPro Associate: Platform - Snowflake",
+  "Python - Prep Insta",
+  "AI Specialist - Salesforce",
+  "AI Associate - Salesforce",
+  "Agentforce Specialist - Salesforce",
+  "SecOps Certified Network Security Practitioner - SecOps",
+  "Oracle AI Foundation Associate - Oracle",
+  "SecOps Certified AppSec Practitioner - SecOps",
+  "GitHub Advanced Security Practitioner - GitHub",
+  "Microsoft Azure AI Fundamentals - Microsoft",
+  "SQL (Basic) - HackerRank",
+  "Web Development Fundamentals - IBM",
 ];
 
 export default function Resume() {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/resume.pdf";
-    link.download = "Emma_Ahearn_Resume.pdf";
+    link.download = "Thariga_Shrinithi_Resume.pdf";
     link.click();
   };
 
@@ -88,22 +89,8 @@ export default function Resume() {
                   {education.university}, {education.location}
                 </p>
                 <p className="text-muted-foreground mb-2">
-                  {education.period} • GPA: {education.gpa}
+                  {education.period} • CGPA: {education.cgpa}
                 </p>
-              </div>
-
-              <div>
-                <p className="font-semibold mb-2">Relevant Coursework:</p>
-                <div className="flex flex-wrap gap-2">
-                  {education.coursework.map((course) => (
-                    <span
-                      key={course}
-                      className="px-3 py-1 bg-muted rounded-full text-sm"
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
               </div>
             </Card>
           </motion.div>
@@ -120,7 +107,7 @@ export default function Resume() {
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-bold">Research Experience</h2>
+                <h2 className="text-2xl font-bold">Experience</h2>
               </div>
 
               <div className="mb-4">
@@ -142,7 +129,7 @@ export default function Resume() {
             </Card>
           </motion.div>
 
-          {/* Awards */}
+          {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,17 +140,17 @@ export default function Resume() {
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Award className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-2xl font-bold">Notable Awards</h2>
+                <h2 className="text-2xl font-bold">Certifications</h2>
               </div>
 
-              <ul className="space-y-3">
-                {awards.map((award, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span>{award}</span>
-                  </li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {certifications.map((cert, index) => (
+                  <div key={index} className="flex items-start gap-2">
+                    <FileText className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-sm">{cert}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </Card>
           </motion.div>
         </div>

@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, TestTube, Leaf } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
 import {
   Dialog,
@@ -15,34 +16,40 @@ import {
 const projects = [
   {
     id: 1,
-    title: "Miniature Chemical Reactor",
-    description:
-      "Engineered a small-scale chemical reactor using principles of chemical engineering",
-    fullDescription:
-      "This project involved the complete design and fabrication of a miniature chemical reactor as part of the Chemical Engineering Course. The reactor was built using advanced chemical engineering principles, with a focus on optimizing reaction conditions. Performance tests were conducted to ensure maximum efficiency and safety standards. The project received excellent marks for its innovative approach to reactor design and demonstrated practical application of theoretical concepts.",
-    tags: ["Chemical Engineering", "Reactor Design", "Safety", "Optimization"],
-    icon: TestTube,
-    year: "2028",
-    course: "Chemical Engineering Course",
+    title: "E-Commerce Web Application",
+    description: "Full-stack e-commerce platform with React.js frontend and Node.js backend",
+    longDescription: "Built a complete e-commerce solution featuring user authentication, product catalog, shopping cart, and secure payment integration. Implemented RESTful APIs and optimized database queries for performance.",
+    tags: ["React.js", "Node.js", "MongoDB", "Express.js"],
+    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
   },
   {
     id: 2,
-    title: "The Green Thumb Chemist",
-    description:
-      "Developed environmentally-friendly lab practices and sustainable chemistry alternatives",
-    fullDescription:
-      "The Green Thumb Chemist was a comprehensive initiative developed through the Chemistry Club aimed at revolutionizing laboratory practices. The project focused on implementing sustainable alternatives to hazardous chemicals, reducing waste, and promoting green chemistry principles. Educational workshops and forums were organized to spread awareness among peers about the importance of environmental responsibility in chemistry. The project successfully influenced lab protocols and inspired other students to adopt eco-friendly practices.",
-    tags: ["Green Chemistry", "Sustainability", "Education", "Innovation"],
-    icon: Leaf,
-    year: "2029",
-    course: "Chemistry Club",
+    title: "Real-Time Chat Application",
+    description: "Interactive messaging platform with real-time communication features",
+    longDescription: "Developed a real-time chat application using WebSocket technology for instant messaging. Features include group chats, file sharing, and user presence indicators.",
+    tags: ["React.js", "Node.js", "Socket.io", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=800&h=600&fit=crop",
+  },
+  {
+    id: 3,
+    title: "Task Management Dashboard",
+    description: "Collaborative project management tool with intuitive UI",
+    longDescription: "Created a comprehensive task management system with drag-and-drop functionality, team collaboration features, and progress tracking. Integrated with third-party APIs for notifications.",
+    tags: ["React.js", "Tailwind CSS", "REST API"],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+  },
+  {
+    id: 4,
+    title: "Portfolio Website Generator",
+    description: "Dynamic portfolio builder with customizable templates",
+    longDescription: "Developed a platform that allows users to create personalized portfolio websites using pre-built templates. Features include drag-and-drop editor, theme customization, and one-click deployment.",
+    tags: ["React.js", "Node.js", "Framer Motion"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
   },
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(
-    null
-  );
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
     <PageTransition>
@@ -52,97 +59,97 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              Projects
+              My Projects
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore my research projects and academic initiatives
+            <p className="text-lg text-muted-foreground">
+              A showcase of my web development work and technical projects
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -8 }}
               >
-                <Card
-                  className="glass-effect p-8 h-full cursor-pointer group"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <project.icon className="w-6 h-6 text-primary" />
+                <Card className="glass-effect overflow-hidden group cursor-pointer hover:scale-105 transition-all duration-300">
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-
-                  <div className="text-sm text-primary font-semibold mb-2">
-                    {project.year} • {project.course}
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
-                        className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                    <div className="flex gap-3">
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => setSelectedProject(project)}
                       >
-                        {tag}
-                      </Badge>
-                    ))}
+                        View Details
+                      </Button>
+                      <Button variant="outline" size="sm">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                      <Button variant="outline" size="sm">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>
             ))}
           </div>
 
-          {/* Project Detail Modal */}
-          <Dialog
-            open={!!selectedProject}
-            onOpenChange={() => setSelectedProject(null)}
-          >
-            <DialogContent className="glass-effect max-w-2xl">
+          <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+            <DialogContent className="max-w-2xl">
               <DialogHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  {selectedProject && (
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <selectedProject.icon className="w-6 h-6 text-primary" />
-                    </div>
-                  )}
-                  <div>
-                    <div className="text-sm text-primary font-semibold">
-                      {selectedProject?.year} • {selectedProject?.course}
-                    </div>
-                    <DialogTitle className="text-2xl">
-                      {selectedProject?.title}
-                    </DialogTitle>
-                  </div>
-                </div>
-                <DialogDescription className="text-base leading-relaxed pt-4">
-                  {selectedProject?.fullDescription}
+                <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
+                <DialogDescription className="text-base pt-4">
+                  {selectedProject?.longDescription}
                 </DialogDescription>
               </DialogHeader>
-
-              <div className="flex flex-wrap gap-2 pt-4">
-                {selectedProject?.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
+              <div className="mt-4">
+                <img
+                  src={selectedProject?.image}
+                  alt={selectedProject?.title}
+                  className="w-full h-64 object-cover rounded-lg mb-4"
+                />
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedProject?.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="flex gap-3">
+                  <Button variant="default">
+                    <Github className="w-4 h-4 mr-2" />
+                    View Code
+                  </Button>
+                  <Button variant="outline">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </Button>
+                </div>
               </div>
             </DialogContent>
           </Dialog>

@@ -1,47 +1,29 @@
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
-import { Beaker, GraduationCap, Award, Target } from "lucide-react";
+import { Code, Database, Server, Globe, Palette, Zap } from "lucide-react";
 
 const skills = [
-  "Organic Chemistry",
-  "Inorganic Chemistry",
-  "Physical Chemistry",
-  "Analytical Chemistry",
-  "Chemical Engineering",
-  "Thermodynamics",
-  "Material Science",
-  "Laboratory Techniques",
-  "Chromatography",
-  "Spectroscopy",
-  "Data Analysis",
-  "Research Methodology",
+  { name: "Programming", items: ["Python", "JavaScript", "Java", "HTML", "CSS"], icon: Code },
+  { name: "Frontend", items: ["React.js", "Tailwind CSS", "Responsive Design"], icon: Globe },
+  { name: "Backend", items: ["Node.js", "Express.js", "REST APIs"], icon: Server },
+  { name: "Database", items: ["MongoDB", "SQL"], icon: Database },
+  { name: "Tools", items: ["Git & GitHub", "VS Code", "Postman", "Canva"], icon: Palette },
+  { name: "Salesforce", items: ["Apex", "LWC", "Flow Builder"], icon: Zap },
 ];
 
 const timeline = [
   {
-    year: "2030",
-    title: "Research Publication",
-    description: "Contributed to research paper on synthesis of novel organic compounds",
-    icon: Beaker,
+    year: "2025-Present",
+    title: "Full Stack Developer Intern",
+    organization: "Syncner",
+    description: "Building web applications using React.js and Node.js, designing APIs, and optimizing database queries",
   },
   {
-    year: "2029-2030",
-    title: "Undergraduate Research Assistant",
-    description: "Chemistry Department at East State University",
-    icon: Target,
-  },
-  {
-    year: "2027",
-    title: "Chemistry Olympiad",
-    description: "Received Gold Award in Chemistry Olympiad",
-    icon: Award,
-  },
-  {
-    year: "2026",
-    title: "Started Bachelor's Degree",
-    description: "Began B.S. in Chemistry at East State University",
-    icon: GraduationCap,
+    year: "2022-2026",
+    title: "B.E. Electronics and Communication",
+    organization: "SNS College of Engineering",
+    description: "CGPA: 9.82 - Pursuing engineering with focus on innovation and technical excellence",
   },
 ];
 
@@ -59,81 +41,86 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
               About Me
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A chemistry graduate passionate about innovation and research
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Aspiring engineering student driven to develop innovative solutions through technical expertise and creativity. 
+              Passionate about continuous learning and eager to apply skills in real-world projects. 
+              Seeking challenging opportunities to contribute, grow, and make a meaningful impact.
             </p>
           </motion.div>
 
-          {/* Professional Summary */}
+          {/* Skills Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-16"
           >
-            <Card className="glass-effect p-8">
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                <Target className="w-6 h-6 text-primary" />
-                Professional Summary
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                I am a chemistry graduate seeking to apply my extensive academic
-                background and laboratory experience in an organization with an
-                innovative vision. I am looking forward to contributing to a dynamic
-                team and supporting research and development efforts.
-              </p>
-            </Card>
-          </motion.div>
-
-          {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mb-16"
-          >
-            <h2 className="text-2xl font-bold mb-6 text-center">Skills & Expertise</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <h2 className="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.map((skill, index) => (
                 <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4 + index * 0.05, duration: 0.3 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="glass-effect p-4 rounded-lg text-center hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                  transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
                 >
-                  {skill}
+                  <Card className="glass-effect p-6 hover:scale-105 transition-transform duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <skill.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-bold">{skill.name}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {skill.items.map((item) => (
+                        <span
+                          key={item}
+                          className="px-3 py-1 bg-muted rounded-full text-sm"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Timeline */}
+          {/* Timeline Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-8 text-center">My Journey</h2>
-            <div className="space-y-8">
+            <h2 className="text-3xl font-bold mb-8 text-center">My Journey</h2>
+            <div className="relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
               {timeline.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                  className="flex gap-4 items-start"
+                  transition={{ delay: 0.5 + index * 0.2, duration: 0.5 }}
+                  className={`mb-8 flex items-center ${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  }`}
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full glass-effect flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <Card className="glass-effect flex-1 p-6 hover:scale-[1.02] transition-transform">
-                    <div className="text-sm text-primary font-semibold mb-1">
+                  <div className="w-1/2"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+                  <Card
+                    className={`glass-effect p-6 w-5/12 ${
+                      index % 2 === 0 ? "mr-auto" : "ml-auto"
+                    }`}
+                  >
+                    <div className="text-sm text-primary font-semibold mb-2">
                       {item.year}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {item.organization}
+                    </p>
+                    <p className="text-sm">{item.description}</p>
                   </Card>
                 </motion.div>
               ))}
