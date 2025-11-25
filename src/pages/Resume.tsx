@@ -4,38 +4,64 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, GraduationCap, Briefcase, Award, FileText } from "lucide-react";
 
-const education = {
-  degree: "B.E. Electronics and Communication Engineering",
-  university: "SNS College of Engineering",
-  location: "Coimbatore",
-  period: "2022-2026",
-  cgpa: "9.82",
-};
+const education = [
+  {
+    degree: "Bachelor of Engineering, Electronics and Communication Engineering",
+    institution: "SNS College of Engineering",
+    location: "Coimbatore",
+    period: "2022-2026",
+    score: "CGPA: 9.82",
+  },
+  {
+    degree: "Senior School",
+    institution: "Kongunadu Matric Higher Secondary School",
+    location: "Namakkal",
+    period: "2022",
+    score: "87.16%",
+  },
+  {
+    degree: "Secondary School",
+    institution: "Kongunadu Matric Higher Secondary School",
+    location: "Namakkal",
+    period: "2020",
+    score: "98.6%",
+  },
+];
 
-const experience = {
-  title: "Full Stack Developer",
-  organization: "Syncner (Remote, India)",
-  period: "Jul 2025 - Present",
-  responsibilities: [
-    "Built web applications using React.js and Node.js",
-    "Designed APIs with Postman and optimized database queries",
-    "Collaborated with cross-functional teams to deliver high-quality solutions",
-  ],
-};
+const experience = [
+  {
+    title: "Full Stack Developer Intern",
+    organization: "Syncner (Remote)",
+    period: "Jul 2025 - Present",
+    responsibilities: [
+      "Built web apps using React.js and Node.js",
+      "Designed APIs with Postman and optimized database queries",
+    ],
+  },
+  {
+    title: "Artificial Intelligence Intern",
+    organization: "Infosys Springboard (Remote)",
+    period: "Sep 2025 – Nov 2025",
+    responsibilities: [
+      "Built an AI based Speech Translation System using Flask, JavaScript and Google/Microsoft APIs",
+      "Gained experience in AI integration, web development and multilingual communication systems",
+    ],
+  },
+];
 
 const certifications = [
-  "SnowPro Associate: Platform - Snowflake",
-  "Python - Prep Insta",
-  "AI Specialist - Salesforce",
-  "AI Associate - Salesforce",
-  "Agentforce Specialist - Salesforce",
-  "SecOps Certified Network Security Practitioner - SecOps",
-  "Oracle AI Foundation Associate - Oracle",
-  "SecOps Certified AppSec Practitioner - SecOps",
-  "GitHub Advanced Security Practitioner - GitHub",
-  "Microsoft Azure AI Fundamentals - Microsoft",
-  "SQL (Basic) - HackerRank",
-  "Web Development Fundamentals - IBM",
+  { name: "Azure AI Fundamentals", issuer: "Microsoft", date: "Jun 2025" },
+  { name: "Agentforce Specialist", issuer: "Salesforce", date: "Aug 2025" },
+  { name: "AI Associate", issuer: "Salesforce", date: "Oct 2024" },
+  { name: "SnowPro Associate", issuer: "Snowflake", date: "Jul 2025" },
+  { name: "Cloud Infrastructure Certified Foundations Associate", issuer: "Oracle", date: "Feb 2025" },
+  { name: "Java", issuer: "PrepInsta", date: "Sep 2023" },
+  { name: "SQL (Basics)", issuer: "HackerRank", date: "Jul 2025" },
+];
+
+const credentials = [
+  { name: "TCS iON National Qualifier Test (Cognitive)", issuer: "TCS iON", date: "May 2025" },
+  { name: "TCS iON Career Edge - Young Professional (Cognitive)", issuer: "TCS iON", date: "Nov 2025" },
 ];
 
 export default function Resume() {
@@ -83,14 +109,18 @@ export default function Resume() {
                 <h2 className="text-2xl font-bold">Education</h2>
               </div>
 
-              <div className="mb-4">
-                <h3 className="text-xl font-bold">{education.degree}</h3>
-                <p className="text-primary font-semibold">
-                  {education.university}, {education.location}
-                </p>
-                <p className="text-muted-foreground mb-2">
-                  {education.period} • CGPA: {education.cgpa}
-                </p>
+              <div className="space-y-6">
+                {education.map((edu, index) => (
+                  <div key={index} className={index !== education.length - 1 ? "pb-6 border-b border-border/50" : ""}>
+                    <h3 className="text-xl font-bold">{edu.degree}</h3>
+                    <p className="text-primary font-semibold">
+                      {edu.institution}{edu.location && `, ${edu.location}`}
+                    </p>
+                    <p className="text-muted-foreground">
+                      {edu.period} • {edu.score}
+                    </p>
+                  </div>
+                ))}
               </div>
             </Card>
           </motion.div>
@@ -110,22 +140,23 @@ export default function Resume() {
                 <h2 className="text-2xl font-bold">Experience</h2>
               </div>
 
-              <div className="mb-4">
-                <h3 className="text-xl font-bold">{experience.title}</h3>
-                <p className="text-primary font-semibold">
-                  {experience.organization}
-                </p>
-                <p className="text-muted-foreground mb-4">{experience.period}</p>
-              </div>
-
-              <ul className="space-y-2">
-                {experience.responsibilities.map((item, index) => (
-                  <li key={index} className="flex gap-3">
-                    <span className="text-primary mt-1">•</span>
-                    <span className="text-muted-foreground">{item}</span>
-                  </li>
+              <div className="space-y-6">
+                {experience.map((exp, index) => (
+                  <div key={index} className={index !== experience.length - 1 ? "pb-6 border-b border-border/50" : ""}>
+                    <h3 className="text-xl font-bold">{exp.title}</h3>
+                    <p className="text-primary font-semibold">{exp.organization}</p>
+                    <p className="text-muted-foreground mb-3">{exp.period}</p>
+                    <ul className="space-y-2">
+                      {exp.responsibilities.map((item, idx) => (
+                        <li key={idx} className="flex gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <span className="text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </Card>
           </motion.div>
 
@@ -134,6 +165,7 @@ export default function Resume() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
+            className="mb-8"
           >
             <Card className="glass-effect p-8">
               <div className="flex items-center gap-3 mb-6">
@@ -143,11 +175,42 @@ export default function Resume() {
                 <h2 className="text-2xl font-bold">Certifications</h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-start gap-2">
-                    <FileText className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                    <span className="text-sm">{cert}</span>
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
+                    <FileText className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">{cert.name}</p>
+                      <p className="text-xs text-muted-foreground">{cert.issuer} • {cert.date}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Additional Credentials */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
+            <Card className="glass-effect p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Award className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold">Additional Credentials</h2>
+              </div>
+
+              <div className="space-y-3">
+                {credentials.map((cred, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
+                    <FileText className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">{cred.name}</p>
+                      <p className="text-xs text-muted-foreground">{cred.issuer} • {cred.date}</p>
+                    </div>
                   </div>
                 ))}
               </div>
