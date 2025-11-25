@@ -4,20 +4,26 @@ import { Card } from "@/components/ui/card";
 import { Code, Database, Server, Globe, Palette, Zap } from "lucide-react";
 
 const skills = [
-  { name: "Programming", items: ["Python", "JavaScript", "Java", "HTML", "CSS"], icon: Code },
-  { name: "Frontend", items: ["React.js", "Tailwind CSS", "Responsive Design"], icon: Globe },
+  { name: "Programming", items: ["Java", "HTML", "CSS", "JavaScript", "Python"], icon: Code },
+  { name: "Frontend", items: ["React.js", "Responsive Design"], icon: Globe },
   { name: "Backend", items: ["Node.js", "Express.js", "REST APIs"], icon: Server },
   { name: "Database", items: ["MongoDB", "SQL"], icon: Database },
   { name: "Tools", items: ["Git & GitHub", "VS Code", "Postman", "Canva"], icon: Palette },
-  { name: "Salesforce", items: ["Apex", "LWC", "Flow Builder"], icon: Zap },
+  { name: "Salesforce", items: ["Apex (Basics)", "LWC", "Flow Builder"], icon: Zap },
 ];
 
 const timeline = [
   {
     year: "2025-Present",
     title: "Full Stack Developer Intern",
-    organization: "Syncner",
-    description: "Building web applications using React.js and Node.js, designing APIs, and optimizing database queries",
+    organization: "Syncner (Remote)",
+    description: "Built web apps using React.js and Node.js. Designed APIs with Postman and optimized database queries.",
+  },
+  {
+    year: "Sep 2025 – Nov 2025",
+    title: "Artificial Intelligence Intern",
+    organization: "Infosys Springboard (Remote)",
+    description: "Built an AI based Speech Translation System using Flask, JavaScript and Google/Microsoft APIs. Gained experience in AI integration, web development and multilingual communication systems.",
   },
   {
     year: "2022-2026",
@@ -42,9 +48,8 @@ export default function About() {
               About Me
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Aspiring engineering student driven to develop innovative solutions through technical expertise and creativity. 
-              Passionate about continuous learning and eager to apply skills in real-world projects. 
-              Seeking challenging opportunities to contribute, grow, and make a meaningful impact.
+              Motivated and enthusiastic Full Stack Developer and AI enthusiast looking forward to an opportunity within the IT field to apply technical expertise in web development and artificial intelligence. 
+              Eager to contribute to innovative projects associated with frontend, backend, and intelligent system integrations while continuously enhancing skills and adapting to emerging technologies.
             </p>
           </motion.div>
 
