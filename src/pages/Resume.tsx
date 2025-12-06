@@ -67,7 +67,7 @@ const credentials = [
 export default function Resume() {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf";
+    link.href = "/Thariga Shrinithi Final Resume.pdf";
     link.download = "Thariga_Shrinithi_Resume.pdf";
     link.click();
   };
