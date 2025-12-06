@@ -13,6 +13,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
+// 🔥 Import images properly from src/assets
+import jobcuroImg from "@/assets/JobCuro.png";
+import attendanceImg from "@/assets/Attendence.png";
+import speechImg from "@/assets/Speech translator.png";
+import weatherImg from "@/assets/Weather.png";
+
 const projects = [
   {
     id: 1,
@@ -21,7 +27,7 @@ const projects = [
     longDescription:
       "Built a full-stack platform for job seekers to explore and apply for opportunities using React.js, Tailwind CSS, Node.js, and MongoDB. Integrated real-time job listings and secure JWT authentication for a smooth user experience.",
     tags: ["React.js", "Node.js", "MongoDB", "JWT"],
-    image: "src/assets/JobCuro.png",
+    image: jobcuroImg,
     code: "https://github.com/One-to-Infinity-Team/JobCuro-Backend",
     demo: "https://jobcuro-frontend.onrender.com",
   },
@@ -30,9 +36,9 @@ const projects = [
     title: "Employee Attendance Managment System",
     description: "Full-stack attendance monitoring platform for tracking employee attendance",
     longDescription:
-      "Built a full-stack platform for employees and managers to manage and track the attendance using React.js, Node.js,Tailwind CSS, Framer motion and MongoDB. Integrated secure JWT authentication for a smooth user experience.",
+      "Built a full-stack platform for employees and managers to manage and track the attendance using React.js, Node.js, Tailwind CSS, Framer Motion and MongoDB. Integrated secure JWT authentication for a smooth user experience.",
     tags: ["React.js", "Node.js", "MongoDB", "JWT"],
-    image: "src/assets/Attendence.png",
+    image: attendanceImg,
     code: "https://github.com/Thariga123/Employee-Attendance-Management-System-----Frontend",
     demo: "https://employee-frontend-kohl-psi.vercel.app/",
   },
@@ -43,7 +49,7 @@ const projects = [
     longDescription:
       "Developed an AI-powered real-time speech translation web app using Flask, JavaScript, and Google/Microsoft APIs, supporting 12+ languages. Integrated speech recognition, translation, and text-to-speech with a responsive teal glassmorphic UI for seamless multilingual interaction.",
     tags: ["Flask", "JavaScript", "Google APIs", "Microsoft APIs", "AI"],
-    image: "src/assets/Speech translator.png",
+    image: speechImg,
     code: "https://github.com/Thariga123/AI-Powered-Real-Time-Speech-Translation-for-Multilingual-Content",
   },
   {
@@ -53,7 +59,7 @@ const projects = [
     longDescription:
       "Built Weather Dash, a React + Node.js dashboard displaying current weather, 5-day forecast, and historical charts. Implemented user preferences, caching, and rate limiting for optimized performance and personalized experience.",
     tags: ["React.js", "Node.js", "REST API", "Charts"],
-    image: "src/assets/Weather.png",
+    image: weatherImg,
     code: "https://github.com/Thariga123/Phase-1/tree/main/Level-20/Weather%20Dashboard",
   },
 ];
@@ -124,7 +130,6 @@ export default function Projects() {
                         Code
                       </Button>
 
-                      {/* Demo button visible only if project.demo exists */}
                       {project.demo && (
                         <Button
                           variant="outline"
@@ -172,7 +177,6 @@ export default function Projects() {
                     View Code
                   </Button>
 
-                  {/* Demo button only if demo exists */}
                   {selectedProject?.demo && (
                     <Button
                       variant="outline"
