@@ -61,7 +61,7 @@ const certifications = [
 
 const credentials = [
   { name: "TCS iON National Qualifier Test (Cognitive)", issuer: "TCS iON", date: "May 2025" },
-  { name: "TCS iON Career Edge - Young Professional (Cognitive)", issuer: "TCS iON", date: "Nov 2025" },
+  { name: "GitHub Advanced Security Practitioner", issuer: "GitHub", date: "Jun 2025" },
 ];
 
 export default function Resume() {

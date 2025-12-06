@@ -5,9 +5,21 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Mail, href: "mailto:hello@reallygreatsite.com", label: "Email" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
+    {
+      icon: Mail,
+      href: "mailto:tharigashrinithi2005@gmail.com",
+      label: "Email",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/r-thariga-shrinithi-ece-snsce",
+      label: "LinkedIn",
+    },
+    {
+      icon: Github,
+      href: "https://github.com/Thariga123",
+      label: "GitHub",
+    },
   ];
 
   return (
@@ -24,6 +36,8 @@ export function Footer() {
               <motion.a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -43,7 +57,7 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex items-center gap-2 text-sm text-muted-foreground"
           >
-            <span>© {currentYear} Emma Ahearn. Made with</span>
+            <span>© {currentYear} Thariga Shrinithi R. Made with</span>
             <Heart className="w-4 h-4 text-primary fill-primary" />
           </motion.div>
         </div>

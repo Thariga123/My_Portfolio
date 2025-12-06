@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Coimbatore, India",
+    value: "Namakkal, India",
     href: null,
   },
 ];
@@ -37,14 +37,14 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
+  const handleSubmit = () => {
+  toast({
+    title: "Message sent!",
+    description: "Thanks for contacting me — I'll reply soon!",
+  });
+
+  setFormData({ name: "", email: "", message: "" });
+};
 
   return (
     <PageTransition>
@@ -65,7 +65,7 @@ export default function Contact() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Info */}
+            {/* Contact Details */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -110,9 +110,9 @@ export default function Contact() {
                 className="glass-effect p-6 rounded-lg"
               >
                 <h3 className="font-semibold mb-3">Let's Connect</h3>
-                <p className="text-muted-foreground">
-                  I'm currently seeking opportunities to contribute my full-stack development 
-                  skills and technical expertise. Whether you have a project in mind or want 
+                <p className="text-muted-foreground text-justify">
+                  I'm currently seeking opportunities to contribute my full-stack development
+                  skills and technical expertise. Whether you have a project in mind or want
                   to discuss potential collaborations, feel free to reach out!
                 </p>
               </motion.div>
@@ -125,20 +125,28 @@ export default function Contact() {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <Card className="glass-effect p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  className="space-y-6"
+                  onSubmit={handleSubmit}
+                >
+                  {/* Required Hidden Inputs */}
+                  <input type="hidden" name="access_key" value="b6e486ee-0788-47f3-be8f-5805dff903fe" />
+                  <input type="hidden" name="subject" value="New message from portfolio contact form" />
+                  <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+                  <input type="hidden" name="replyto" value={formData.email} />
+                  <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium mb-2"
-                    >
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Name
                     </label>
                     <Input
                       id="name"
+                      name="name"
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
                       required
                       className="glass-effect"
@@ -146,19 +154,15 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium mb-2"
-                    >
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email
                     </label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="your.email@example.com"
                       required
                       className="glass-effect"
@@ -166,18 +170,14 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-2"
-                    >
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message
                     </label>
                     <Textarea
                       id="message"
+                      name="message"
                       value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Your message..."
                       rows={6}
                       required

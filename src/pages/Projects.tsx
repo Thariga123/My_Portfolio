@@ -18,25 +18,43 @@ const projects = [
     id: 1,
     title: "JobCuro",
     description: "Full-stack job platform for exploring and applying to opportunities",
-    longDescription: "Built a full-stack platform for job seekers to explore and apply for opportunities using React.js, Node.js, and MongoDB. Integrated real-time job listings and secure JWT authentication for a smooth user experience.",
+    longDescription:
+      "Built a full-stack platform for job seekers to explore and apply for opportunities using React.js, Tailwind CSS, Node.js, and MongoDB. Integrated real-time job listings and secure JWT authentication for a smooth user experience.",
     tags: ["React.js", "Node.js", "MongoDB", "JWT"],
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+    image: "public/JobCuro.png",
+    code: "https://github.com/One-to-Infinity-Team/JobCuro-Backend",
+    demo: "https://jobcuro-frontend.onrender.com",
   },
   {
     id: 2,
-    title: "AI-Powered Real Time Speech Translation",
-    description: "Multilingual speech translation system with real-time capabilities",
-    longDescription: "Developed an AI-powered real-time speech translation web app using Flask, JavaScript, and Google/Microsoft APIs, supporting 12+ languages. Integrated speech recognition, translation, and text-to-speech with a responsive teal glassmorphic UI for seamless multilingual interaction.",
-    tags: ["Flask", "JavaScript", "Google APIs", "Microsoft APIs", "AI"],
-    image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=600&fit=crop",
+    title: "Employee Attendance Managment System",
+    description: "Full-stack attendance monitoring platform for tracking employee attendance",
+    longDescription:
+      "Built a full-stack platform for employees and managers to manage and track the attendance using React.js, Node.js,Tailwind CSS, Framer motion and MongoDB. Integrated secure JWT authentication for a smooth user experience.",
+    tags: ["React.js", "Node.js", "MongoDB", "JWT"],
+    image: "public/Attendence.png",
+    code: "https://github.com/Thariga123/Employee-Attendance-Management-System-----Frontend",
+    demo: "https://employee-frontend-kohl-psi.vercel.app/",
   },
   {
     id: 3,
+    title: "AI-Powered Real Time Speech Translation",
+    description: "Multilingual speech translation system with real-time capabilities",
+    longDescription:
+      "Developed an AI-powered real-time speech translation web app using Flask, JavaScript, and Google/Microsoft APIs, supporting 12+ languages. Integrated speech recognition, translation, and text-to-speech with a responsive teal glassmorphic UI for seamless multilingual interaction.",
+    tags: ["Flask", "JavaScript", "Google APIs", "Microsoft APIs", "AI"],
+    image: "public/Speech translator.png",
+    code: "https://github.com/Thariga123/AI-Powered-Real-Time-Speech-Translation-for-Multilingual-Content",
+  },
+  {
+    id: 4,
     title: "WeatherDashboard",
     description: "Comprehensive weather dashboard with forecasts and historical data",
-    longDescription: "Built Weather Dash, a React + Node.js dashboard displaying current weather, 5-day forecast, and historical charts. Implemented user preferences, caching, and rate limiting for optimized performance and personalized experience.",
+    longDescription:
+      "Built Weather Dash, a React + Node.js dashboard displaying current weather, 5-day forecast, and historical charts. Implemented user preferences, caching, and rate limiting for optimized performance and personalized experience.",
     tags: ["React.js", "Node.js", "REST API", "Charts"],
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
+    image: "public/Weather.png",
+    code: "https://github.com/Thariga123/Phase-1/tree/main/Level-20/Weather%20Dashboard",
   },
 ];
 
@@ -96,14 +114,27 @@ export default function Projects() {
                       >
                         View Details
                       </Button>
-                      <Button variant="outline" size="sm">
+
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(project.code, "_blank")}
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         Code
                       </Button>
-                      <Button variant="outline" size="sm">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
+
+                      {/* Demo button visible only if project.demo exists */}
+                      {project.demo && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.open(project.demo, "_blank")}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -133,14 +164,24 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button variant="default">
+                  <Button
+                    variant="default"
+                    onClick={() => window.open(selectedProject?.code, "_blank")}
+                  >
                     <Github className="w-4 h-4 mr-2" />
                     View Code
                   </Button>
-                  <Button variant="outline">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
+
+                  {/* Demo button only if demo exists */}
+                  {selectedProject?.demo && (
+                    <Button
+                      variant="outline"
+                      onClick={() => window.open(selectedProject.demo, "_blank")}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live Demo
+                    </Button>
+                  )}
                 </div>
               </div>
             </DialogContent>

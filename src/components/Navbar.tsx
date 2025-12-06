@@ -28,7 +28,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold gradient-text">
-            Emma Ahearn
+            Thariga Shrinithi R
           </Link>
 
           {/* Desktop Navigation */}

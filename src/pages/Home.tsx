@@ -69,7 +69,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-justify"
           >
             Aspiring engineering student driven to develop innovative solutions through technical expertise and creativity. 
             Passionate about continuous learning and eager to apply skills in real-world projects.

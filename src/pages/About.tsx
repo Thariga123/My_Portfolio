@@ -5,7 +5,7 @@ import { Code, Database, Server, Globe, Palette, Zap } from "lucide-react";
 
 const skills = [
   { name: "Programming", items: ["Java", "HTML", "CSS", "JavaScript", "Python"], icon: Code },
-  { name: "Frontend", items: ["React.js", "Responsive Design"], icon: Globe },
+  { name: "Frontend", items: ["React.js", "Tailwind CSS"], icon: Globe },
   { name: "Backend", items: ["Node.js", "Express.js", "REST APIs"], icon: Server },
   { name: "Database", items: ["MongoDB", "SQL"], icon: Database },
   { name: "Tools", items: ["Git & GitHub", "VS Code", "Postman", "Canva"], icon: Palette },
@@ -14,7 +14,13 @@ const skills = [
 
 const timeline = [
   {
-    year: "2025-Present",
+    year: "2022-2026",
+    title: "B.E. Electronics and Communication",
+    organization: "SNS College of Engineering",
+    description: "CGPA: 9.82 - Pursuing engineering with focus on innovation and technical excellence",
+  },
+  {
+    year: "Jul 2025-Present",
     title: "Full Stack Developer Intern",
     organization: "Syncner (Remote)",
     description: "Built web apps using React.js and Node.js. Designed APIs with Postman and optimized database queries.",
@@ -25,12 +31,7 @@ const timeline = [
     organization: "Infosys Springboard (Remote)",
     description: "Built an AI based Speech Translation System using Flask, JavaScript and Google/Microsoft APIs. Gained experience in AI integration, web development and multilingual communication systems.",
   },
-  {
-    year: "2022-2026",
-    title: "B.E. Electronics and Communication",
-    organization: "SNS College of Engineering",
-    description: "CGPA: 9.82 - Pursuing engineering with focus on innovation and technical excellence",
-  },
+  
 ];
 
 export default function About() {
@@ -47,7 +48,7 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
               About Me
             </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-justify">
               Motivated and enthusiastic Full Stack Developer and AI enthusiast looking forward to an opportunity within the IT field to apply technical expertise in web development and artificial intelligence. 
               Eager to contribute to innovative projects associated with frontend, backend, and intelligent system integrations while continuously enhancing skills and adapting to emerging technologies.
             </p>
@@ -125,7 +126,7 @@ export default function About() {
                     <p className="text-sm text-muted-foreground mb-2">
                       {item.organization}
                     </p>
-                    <p className="text-sm">{item.description}</p>
+                    <p className="text-sm text-justify">{item.description}</p>
                   </Card>
                 </motion.div>
               ))}
